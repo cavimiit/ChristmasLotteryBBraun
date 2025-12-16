@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+    <meta name="screen-orientation" content="portrait">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <title>Results</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/wall.css">
+    <link rel="icon" type="image/x-icon" href="img/tree.webp?">   
+    <style type="text/css">
+        .wall { 
+            overflow: scroll;
+            background-repeat: repeat;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Titillium Web', sans-serif;
+            color: beige;
+        }
+        .mask {
+            -webkit-filter:blur(5px);
+            filter:blur(5px);
+        }
+        #main {
+            -webkit-transition: all 1s;
+            transition: all 1s;
+        }
+        .result-list {
+            text-align: center;
+            
+            font-size: 30px;
+            line-height: 50px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            
+        }
+        .result-title {
+            text-align: center;
+            
+            font-size: 70px;
+            margin-top: 100px;
+            font-family: 'Kanit', sans-serif;
+
+            
+        }
+
+    </style>
+</head>
+<body>
+<div id="main" class="wall">
+    
+    <div class="result-title">RISULTATI</div>
+    <div class="result-list" v-for="result in results">
+
+    </div>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script>
+    let locals = window.localStorage
+    let totalprizesnumber = getCookie("totalprizes");
+    let counter = Number(locals.getItem("counter"));
+    let resultcontainer = document.querySelector(".result-list");
+    for(let i =0; i<counter; i++){
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("resultitem");
+        itemDiv.innerHTML = `${totalprizesnumber-i}. ${locals.getItem(`extract${i}`)}`
+        resultcontainer.insertBefore(itemDiv, resultcontainer.firstChild);
+
+    }
+    function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Check if the cookie name matches
+      if (cookie.startsWith(name + '=')) {
+        // Get the cookie value and convert it to an integer
+        const value = parseInt(cookie.substring(name.length + 1), 10);
+        return isNaN(value) ? null : value;
+      }
+    }
+    return null; // Return null if cookie not found
+  }
+</script>
+<!-- <script src="js/snow3d.js"></script>
+<script>startSnow();</script> -->
+</body>
+</html>

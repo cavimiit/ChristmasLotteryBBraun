@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Playpen+Sans&display=swap" rel="stylesheet">
+    <meta name="screen-orientation" content="portrait">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <title>B|Braun XMAS Lottery</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/wall.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="img/tree.webp?">    
+   
+</head>
+<body>
+    <div class="containerblack invisible">
+        <canvas id="scene" width="500px" height="500px" style="background:black; display: block; margin: 0 auto"></canvas>
+    </div>
+      
+
+<div id="main" class="wall">
+    <div id="githublink">👨‍💻 SOURCE CODE: github.com/xmaslottery</div>
+    <div class="result-btn">
+       <a href="./result.html" target="_blank">RISULTATI</a>
+       <div class="logo" style="color:white; font-size: 35px; " id="yeardiv"></div>
+    </div>
+</div>
+
+<div id="result" class="result"> 
+</div>
+<div id="tools" class="tools invisible">
+     <button 
+        v-for="value in btns"
+        @click="onClick(value)"
+        class="pure-button"
+        :class="{ 'button-error': selected == value}"
+       >⏸️</button>
+    <button
+       class="pure-button"
+       @click="toggle"
+       :class="{'button-secondary': !running,
+               'button-success': running}">{{running?'⏹️':'▶️'}}</button>
+    <button class="pure-button button-warning" @click="reset">♻️</button>
+</div>
+<script src="js/tree_loading.js"></script>
+<script src="js/start.js"></script>
+<script type="text/javascript" id="myScript2" src="js/vue.js"></script>
+<script type="text/javascript" id="myScript1" src="js/zepto.js" ></script>
+
+<script type="text/javascript" id="myScript3" src="js/tagcanvas.js"></script> 
+<script type="text/javascript" id="myScript4" src="js/member.js"></script>
+<script  id="myScript5" src="js/index.js"></script>
+
+<script  id="myScript6"></script>
+<script>
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    document.querySelector("#yeardiv").innerHTML = `<img src="img/bbraun.webp" id="imglogo" alt="B|BRAUN LOGO"><br>${currentYear} 🎅 XMAS LOTTERY`;
+</script>
+
+</body>
+</html>
