@@ -189,6 +189,9 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 .ticket-azzurro{
     background-color: #ABF0FA;
 }
+.ticket-grigio{
+    background-color: #808080;
+}
 .ticket-verde{
     background-color: #99FFCC;
 }
@@ -213,3 +216,4 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     left: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
