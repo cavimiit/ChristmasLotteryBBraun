@@ -150,8 +150,8 @@ function randomInRange(min, max) {
             case 'bianco':
                 coloreitem="white";
                 break;
-            case 'azzurro':
-                coloreitem="#ABF0FA";
+            case 'grigio':
+                coloreitem="#808080";
                  break;
             case 'rosa':
                 coloreitem="#F7C7F7";
@@ -324,4 +324,5 @@ function filterMembers(member) {
     }
   
     return members_filtered;
+
   }
